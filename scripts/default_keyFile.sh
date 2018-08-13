@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 
 mkdir -p ${MongoKeyFile%/*}
@@ -24,4 +24,4 @@ chown 999 $MongoKeyFile
 
 
 
-echo "" > $0
+rm -rf $0

@@ -1,8 +1,8 @@
-#/bin/bash
+#!/bin/bash
 
+mkdir -p $MongoDbpath
 mkdir -p ${MongoConfigFile%/*}
 mkdir -p ${MongoLogpath%/*}
-mkdir -p ${MongoDbpath%/*}
 mkdir -p ${MongoKeyFile%/*}
 
 
@@ -19,13 +19,15 @@ logappend=true
 replSet=$MongoReplSet
 port=27017
 auth=true
+smallfiles=true
 oplogSize=300
+bind_ip_all=true
 EOF
 
 fi
 
 
-cat $MongoConfigFile
 
 
-echo "" > $0
+
+rm -rf $0
