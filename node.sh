@@ -22,14 +22,17 @@ let port=27017+$i
 docker run \
 --name mongo$i \
 --privileged=true \
+-e MongoConfigFile="/opt/mongo/mongo.conf" \
 -p $port:27017 \
 -v /opt/mongo/store/mongo$i:/opt/mongo/store \
 -v /etc/localtime:/etc/localtime:ro \
--v /opt/mongo/key:/opt/mongo/key \
--v /opt/mongo/conf:/opt/mongo/conf \
 -d mongodb 
 #-v /opt/mongo/node_script:/docker-entrypoint-initdb.d \
 #
+
+
+#-v /opt/mongo/key:/opt/mongo/key \
+#-v /opt/mongo/conf:/opt/mongo/conf \
 
 
 #-v /opt/mongo/key:/opt/mongo/key \

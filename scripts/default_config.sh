@@ -1,24 +1,31 @@
 #/bin/bash
 
-mkdir -p /opt/mongo/conf/
+mkdir -p ${MongoConfigFile%/*}
+mkdir -p ${MongoLogpath%/*}
+mkdir -p ${MongoDbpath%/*}
+mkdir -p ${MongoKeyFile%/*}
 
 
-file=/opt/mongo/conf/mongo.conf
-if [ ! -f $file ]; then
 
-cat <<EOF > $file
-dbpath=/opt/mongo/store/data
-logpath=/opt/mongo/store/logs/mongo.log
-keyFile=/opt/mongo/key/keyfile
+
+if [ ! -f $MongoConfigFile ]; then
+
+cat <<EOF > $MongoConfigFile
+dbpath=$MongoDbpath
+logpath=$MongoLogpath
+keyFile=$MongoKeyFile
 directoryperdb=true
 logappend=true
-replSet=testrs
+replSet=$MongoReplSet
 port=27017
 auth=true
 oplogSize=300
 EOF
 
 fi
+
+
+cat $MongoConfigFile
 
 
 echo "" > $0

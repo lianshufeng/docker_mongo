@@ -12,4 +12,4 @@ sh /opt/scripts/default_keyFile.sh
 
 
 #启动服务
-mongod --config /opt/mongo/conf/mongo.conf --bind_ip_all
+mongod --config $MongoConfigFile --bind_ip_all
