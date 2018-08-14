@@ -32,7 +32,7 @@ docker run -d lianshufeng/mongodb
 - /opt/mongo/store/logs/mongo.log
 
 ## eg
-- docker run --name mongo --privileged=true -p 27017:27017 -v /opt/mongo/store/mongo:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate="192.168.145.129:27017,192.168.145.129:27018" -e ReplSetArbiter="192.168.145.129:27019" e MongoInitRootUserName="admin" -e MongoInitRootPassWord="687mongo2018" -d mongodb 
+- docker run --name mongo --privileged=true -p 27017:27017 -v /opt/mongo/store/mongo:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate="192.168.145.129:27017,192.168.145.129:27018" -e ReplSetArbiter="192.168.145.129:27019" e MongoInitRootUserName="admin" -e MongoInitRootPassWord="687mongo2018" -d lianshufeng/mongodb 
 
 
 ## init db
@@ -43,5 +43,5 @@ docker run -d lianshufeng/mongodb
 
 
 ## client login
-- mongo --host testrs/192.168.145.129:27017,192.168.145.129:27018,192.168.145.129:27019 admin -u admin -p 687mongo2018
+- mongo --host MongoSets/192.168.145.129:27017,192.168.145.129:27018,192.168.145.129:27019 admin -u admin -p 687mongo2018
 
