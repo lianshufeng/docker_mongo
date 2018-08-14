@@ -38,13 +38,11 @@ ENV MongoInitRootPassWord=""
 #生成默认的配置文件
 ADD scripts/default_config.sh $ScriptPath/default_config.sh
 ADD scripts/default_keyFile.sh $ScriptPath/default_keyFile.sh
-ADD scripts/default_initRootUser.sh $ScriptPath/default_initRootUser.sh
-ADD scripts/default_replSetInitiate.sh $ScriptPath/default_replSetInitiate.sh
 ADD scripts/default_runonce.sh $ScriptPath/default_runonce.sh
-ADD scripts/default_startMongod.sh $ScriptPath/default_startMongod.sh
+#集群初始化及root账号与密码
+ADD scripts/db_init.sh $ScriptPath/db_init.sh
 #自动启动
 ADD scripts/bootstrap.sh /opt/bootstrap.sh
-
 
 
 

@@ -44,8 +44,12 @@ docker run \
 -e MongoInitRootUserName="admin" \
 -e MongoInitRootPassWord="xiaofeng" \
 -d mongodb 
-#-v /opt/mongo/node_script:/docker-entrypoint-initdb.d \
-#
+
+
+#-e ReplSetInitiate="192.168.145.129:27017,192.168.145.129:27018" \
+#-e ReplSetArbiter="192.168.145.129:27019" \
+#-e MongoInitRootUserName="admin" \
+#-e MongoInitRootPassWord="xiaofeng" \
 
 
 #-v /opt/mongo/key:/opt/mongo/key \

@@ -3,8 +3,7 @@
 
 bash $ScriptPath/default_config.sh 
 bash $ScriptPath/default_keyFile.sh
-bash $ScriptPath/default_replSetInitiate.sh
-bash $ScriptPath/default_initRootUser.sh
-
+#初始化DB
+bash $ScriptPath/db_init.sh
 
 echo "" > $0
