@@ -19,9 +19,9 @@ docker run -d lianshufeng/mongodb
 ### MongoReplSet 
 - MongoSets
 ### ReplSetInitiate
-- mongo1:27017,mongo2:27017,mongo3:27017
+- 192.168.145.129:27017,192.168.145.129:27018
 ### ReplSetArbiter
-- mongo4:27017
+- 192.168.145.129:27019
 ### MongoInitRootUserName
 - admin
 ### MongoInitRootPassWord
