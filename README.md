@@ -6,11 +6,17 @@
 - Auth
 
 ## build
-- docker build -t mongodb ./ 
+```shell
+docker build -t mongodb ./ 
+```
 
 ## keyfile
-- openssl rand -base64 256 -out /opt/mongo/key/keyfile
-- -v /opt/mongo/key/keyfilei:/opt/mongo/key/keyfile
+```shell
+openssl rand -base64 256 -out /opt/mongo/key/keyfile
+```
+```shell
+-v /opt/mongo/key/keyfilei:/opt/mongo/key/keyfile
+```
 
 ## ENV 
 ### MongoReplSet 
