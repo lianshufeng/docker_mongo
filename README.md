@@ -71,13 +71,13 @@ done
 
 #### init db
 ```shell
-docker exec -it mongo0 /bin/bash
-sh init_mongodb.sh
+docker exec -it mongo0 /bin/bash init_mongodb.sh
 ```
 
 
 ## client login
 ```shell
+docker exec -it mongo0 /bin/bash init_mongodb.sh
 VmHost=192.168.145.129
 mongo --host MongoSets/$VmHost:27017,$VmHost:27018,$VmHost:27019 admin -u admin -p 687mongo2018
 ```
