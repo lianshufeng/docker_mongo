@@ -60,6 +60,7 @@ firewall-cmd --reload
 
 #### start  mongodb data node
 ```shell
+rm -rf /opt/mongo/store/
 VmHost=192.168.145.129
 for((i=0;i<3;i++));
 do 
@@ -77,7 +78,7 @@ docker exec -it mongo0 /bin/bash init_mongodb.sh
 
 ## client login
 ```shell
-docker exec -it mongo0 /bin/bash init_mongodb.sh
+docker exec -it mongo0 /bin/bash
 VmHost=192.168.145.129
 mongo --host MongoSets/$VmHost:27017,$VmHost:27018,$VmHost:27019 admin -u admin -p 687mongo2018
 ```
