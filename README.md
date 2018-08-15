@@ -60,8 +60,10 @@ done
 ```
 
 #### init db
-- docker  exec -it mongo /bin/bash
-- sh init_mongodb.sh
+```shell
+docker  exec -it mongo /bin/bash
+sh init_mongodb.sh
+```
 
 
 ## client login
