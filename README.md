@@ -71,7 +71,7 @@ done
 
 #### init db
 ```shell
-docker exec -it mongo /bin/bash
+docker exec -it mongo1 /bin/bash
 sh init_mongodb.sh
 ```
 
