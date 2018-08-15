@@ -47,7 +47,7 @@
 - firewall-cmd --reload 
 
 
-#### 
+#### start  mongodb data node
 - VmHost=192.168.145.129
 - for((i=0;i<3;i++));
 - do 
@@ -55,6 +55,10 @@
 - let port=27017+$i
 - docker run --name mongo$i --privileged=true -p $port:27017 -v /opt/mongo/store/mongo$i:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate"192.168.145.129:27017,192.168.145.129:27018" -e ReplSetArbiter="192.168.145.129:27019" -e MongoInitRootUserName="admin" -e MongoInitRootPassWord="xiaofeng" -d lianshufeng/mongodb 
 - done
+
+#### init db
+- docker  exec -it mongo /bin/bash
+- sh init_mongodb.sh
 
 
 ## client login
