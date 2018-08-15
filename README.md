@@ -32,9 +32,13 @@
 
 ## init db
 ### Enter any data docker container
-- docker  exec -it mongo /bin/bash
+```shell
+docker  exec -it mongo /bin/bash
+```
 ### shell
-- sh init_mongodb.sh
+```shell
+sh init_mongodb.sh
+```
 
 
 
@@ -61,7 +65,7 @@ done
 
 #### init db
 ```shell
-docker  exec -it mongo /bin/bash
+docker exec -it mongo /bin/bash
 sh init_mongodb.sh
 ```
 
