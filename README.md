@@ -8,9 +8,6 @@
 ## build
 - docker build -t mongodb ./ 
 
-## simple 
-docker run -d lianshufeng/mongodb
-
 ## keyfile
 - openssl rand -base64 256 -out /opt/mongo/key/keyfile
 - -v /opt/mongo/key/keyfilei:/opt/mongo/key/keyfile
@@ -31,8 +28,6 @@ docker run -d lianshufeng/mongodb
 ### MongoLogpath
 - /opt/mongo/store/logs/mongo.log
 
-## eg
-- docker run --name mongo --privileged=true -p 27017:27017 -v /opt/mongo/store/mongo:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate="192.168.145.129:27017,192.168.145.129:27018" -e ReplSetArbiter="192.168.145.129:27019" e MongoInitRootUserName="admin" -e MongoInitRootPassWord="687mongo2018" -d lianshufeng/mongodb 
 
 
 ## init db
@@ -40,6 +35,26 @@ docker run -d lianshufeng/mongodb
 - docker  exec -it mongo /bin/bash
 ### shell
 - sh init_mongodb.sh
+
+
+
+## simple demo
+
+####  firewall
+- sudo firewall-cmd --add-port=27017/tcp --permanent 
+- sudo firewall-cmd --add-port=27018/tcp --permanent 
+- sudo firewall-cmd --add-port=27019/tcp --permanent 
+- firewall-cmd --reload 
+
+
+#### 
+- VmHost=192.168.145.129
+- for((i=0;i<3;i++));
+- do 
+- docker rm -f mongo$i
+- let port=27017+$i
+- docker run --name mongo$i --privileged=true -p $port:27017 -v /opt/mongo/store/mongo$i:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate"192.168.145.129:27017,192.168.145.129:27018" -e ReplSetArbiter="192.168.145.129:27019" -e MongoInitRootUserName="admin" -e MongoInitRootPassWord="xiaofeng" -d lianshufeng/mongodb 
+- done
 
 
 ## client login
