@@ -54,7 +54,8 @@ sh init_mongodb.sh
 ```shell
 sudo firewall-cmd --add-port=27017/tcp --permanent 
 sudo firewall-cmd --add-port=27018/tcp --permanent 
-sudo firewall-cmd --add-port=27019/tcp --permanent 
+sudo firewall-cmd --add-port=27019/tcp --permanent
+sudo firewall-cmd --add-port=27020/tcp --permanent
 firewall-cmd --reload 
 ```
 
@@ -62,11 +63,11 @@ firewall-cmd --reload
 ```shell
 rm -rf /opt/mongo/store/
 VmHost=192.168.145.129
-for((i=0;i<3;i++));
+for((i=0;i<4;i++));
 do 
   docker rm -f mongo$i
   let port=27017+$i
-  docker run --name mongo$i --privileged=true -p $port:27017 -v /opt/mongo/store/mongo$i:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate="$VmHost:27017,$VmHost:27018" -e ReplSetArbiter="$VmHost:27019" -e MongoInitRootUserName="admin" -e MongoInitRootPassWord="687mongo2018" -d lianshufeng/mongodb 
+  docker run --name mongo$i --privileged=true -p $port:27017 -v /opt/mongo/store/mongo$i:/opt/mongo/store -v /etc/localtime:/etc/localtime:ro -e ReplSetInitiate="$VmHost:27017,$VmHost:27018,,$VmHost:27019" -e ReplSetArbiter="$VmHost:27020" -e MongoInitRootUserName="admin" -e MongoInitRootPassWord="687mongo2018" -d lianshufeng/mongodb 
 done
 ```
 
@@ -80,5 +81,5 @@ docker exec -it mongo0 /bin/bash init_mongodb.sh
 ```shell
 docker exec -it mongo0 /bin/bash
 VmHost=192.168.145.129
-mongo --host MongoSets/$VmHost:27017,$VmHost:27018,$VmHost:27019 admin -u admin -p 687mongo2018
+mongo --host MongoSets/$VmHost:27017,$VmHost:27018,$VmHost:27019,$VmHost:27020 admin -u admin -p 687mongo2018
 ```
