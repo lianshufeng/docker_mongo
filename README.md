@@ -5,6 +5,10 @@
 - Transaction
 - Auth
 
+
+## version
+- MongoDB server version: 4.0.9
+
 ## build
 ```shell
 docker build -t mongodb ./ 
