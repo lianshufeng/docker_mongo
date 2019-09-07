@@ -19,7 +19,6 @@ logappend=true
 replSet=$MongoReplSet
 port=27017
 auth=true
-smallfiles=true
 oplogSize=300
 bind_ip_all=true
 EOF
