@@ -1,6 +1,6 @@
 # mongo replicaset
 #
-# build	: docker build -t mongodb ./ 
+# build	: docker build -t lianshufeng/mongodb ./ 
 # 
 # docker run -d mongodb -p 27017:27017 
 #
