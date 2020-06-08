@@ -11,16 +11,24 @@ mkdir -p ${MongoKeyFile%/*}
 if [ ! -f $MongoConfigFile ]; then
 
 cat <<EOF > $MongoConfigFile
-dbpath=$MongoDbpath
-logpath=$MongoLogpath
-keyFile=$MongoKeyFile
-directoryperdb=true
-logappend=true
-replSet=$MongoReplSet
-port=27017
-auth=true
-oplogSize=300
-bind_ip_all=true
+net:
+   bindIpAll: true
+   port: 27017
+storage:
+   dbPath: $MongoDbpath
+   directoryPerDB: true
+   journal:
+      enabled: true
+systemLog:
+   destination: file
+   path: "$MongoLogpath"
+   logAppend: true
+security:
+   keyFile: $MongoKeyFile
+   authorization: enabled
+replication:
+   oplogSizeMB: 300
+   replSetName: $MongoReplSet
 EOF
 
 fi

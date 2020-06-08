@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#安装环境
+sudo yum install -y dos2unix
+
 #防火墙
 sudo firewall-cmd --add-port=27017/tcp --permanent
 sudo firewall-cmd --add-port=27018/tcp --permanent
@@ -9,6 +12,7 @@ firewall-cmd --reload
 
 
 #载入环境变量
+dosunix * .env
 cd `dirname $0`
 source ${PWD}/.env
 
