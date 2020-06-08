@@ -12,7 +12,7 @@ firewall-cmd --reload
 
 
 #载入环境变量
-dosunix * .env
+dos2unix * .env
 cd `dirname $0`
 source ${PWD}/.env
 
