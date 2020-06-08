@@ -6,4 +6,4 @@ bash $ScriptPath/default_runonce.sh
 
 
 #启动服务
-mongod --config $MongoConfigFile
+mongod --config $MongoConfigFile --setParameter maxTransactionLockRequestTimeoutMillis=3000
