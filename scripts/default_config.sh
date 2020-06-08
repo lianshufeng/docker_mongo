@@ -21,6 +21,7 @@ port=27017
 auth=true
 oplogSize=300
 bind_ip_all=true
+maxTransactionLockRequestTimeoutMillis=3000
 EOF
 
 fi
