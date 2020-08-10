@@ -7,7 +7,7 @@
 
 
 ## version
-- MongoDB server version: 4.2.3
+- MongoDB server version: 4.4.0
 
 ## build
 ```shell
