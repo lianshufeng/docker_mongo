@@ -6,7 +6,7 @@
 #
 
 
-FROM mongo:5.0.0
+FROM mongo:5.0.2
 
 MAINTAINER lianshufeng <251708339@qq.com>
 
