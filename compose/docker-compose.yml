@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.7'
 
 services:
   mongo1:
@@ -65,5 +65,14 @@ services:
       MongoInitRootPassWord: "${MongoInitRootPassWord}"
 
 
-
-
+  mongo-express:
+    image: mongo-express
+    restart: always
+    container_name: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: "mongodb://${MongoInitRootUserName}:${MongoInitRootPassWord}@mongo1,mongo2,mongo3,mongo4/admin?replicaSet=MongoSets"
+      ME_CONFIG_BASICAUTH_USERNAME: "${MongoInitRootUserName}"
+      ME_CONFIG_BASICAUTH_PASSWORD: "${MongoInitRootPassWord}"
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
