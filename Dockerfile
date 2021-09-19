@@ -45,6 +45,9 @@ ADD scripts/db_init.sh $ScriptPath/db_init.sh
 #自动启动
 ADD scripts/bootstrap.sh /opt/bootstrap.sh
 
+#转换脚本为linux
+RUN apt-get update ; apt-get install dos2unix ; dos2unix $ScriptPath/* /opt/bootstrap.sh ; apt-get clean
+
 
 
 ENTRYPOINT bash /opt/bootstrap.sh 
