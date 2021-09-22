@@ -67,14 +67,14 @@ if [ $MongoInitRootUserName != ""  ] || [ $ReplSetInitiate != "" ] ; then
 cat <<EOF > init_mongodb.sh
 #!/bin/bash
 echo "replSet initiate ."
-mongosh --shell $ScriptPath/replSetInitiate.js
+mongo --shell $ScriptPath/replSetInitiate.js
 
 
 echo "Add root user"
 while [ ! -s /tmp/initRootUser ]  ; do
 	echo "Wait..."
 	sleep 5
-	mongosh --shell $ScriptPath/initRootUser.js | grep  "Successfully" > /tmp/initRootUser
+	mongo --shell $ScriptPath/initRootUser.js | grep  "Successfully" > /tmp/initRootUser
 done
 rm -rf /tmp/initRootUser
 echo "Success"
